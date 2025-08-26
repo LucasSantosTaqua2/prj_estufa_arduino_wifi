@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let ultimoTotalLeituras = -1;
 
     function logMessage(message, type) {
-        // ...código original sem alteração...
         const timestamp = new Date().toLocaleTimeString('pt-BR');
         const icon = type === 'error' ? '🔥 ERRO:' : '✅ SUCESSO:';
         const novaLinha = document.createElement('div');
@@ -14,11 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         logBox.prepend(novaLinha);
     }
 
-    /**
-     * Aciona a animação sutil e atualiza o conteúdo do elemento no meio dela.
-     * @param {HTMLElement} element - O elemento (<span> ou <p>) que contém o valor a ser atualizado.
-     * @param {string} newValue - O novo valor a ser exibido.
-     */
     function triggerUpdateAnimation(element, newValue) {
         if (!element || element.textContent === newValue) return;
 
@@ -37,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function buscarEstatisticas(ultimaLeitura = null) {
-        // ...código original sem alteração...
         try {
             const response = await fetch('/estatisticas');
             if (!response.ok) throw new Error(`Falha ao buscar estatísticas (${response.status})`);
@@ -79,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function connectWebSocket() {
-        // ... (código original do WebSocket, sem alterações)
         const socket = new WebSocket('ws://' + window.location.host);
         socket.onopen = () => { console.log('WebSocket conectado!'); logMessage('Conectado ao servidor em tempo real.', 'success'); };
         socket.onmessage = (event) => {
