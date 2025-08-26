@@ -2,7 +2,6 @@
 
 const { Pool } = require('pg');
 
-// Configura a conexão com o banco de dados PostgreSQL.
 // O Pool gerencia múltiplas conexões, o que é mais eficiente para o servidor.
 const pool = new Pool({
     user: 'postgres',                 // Usuário padrão do Postgres
@@ -14,9 +13,6 @@ const pool = new Pool({
 
 // Esta função assíncrona cria a tabela 'leituras' se ela ainda não existir.
 const createTable = async () => {
-    // A query SQL para criar a tabela.
-    // 'id SERIAL PRIMARY KEY' cria um ID numérico que se auto-incrementa.
-    // 'timestamp' registra a data e hora exatas de cada leitura.
     const createTableQuery = `
         CREATE TABLE IF NOT EXISTS leituras (
             id SERIAL PRIMARY KEY,
@@ -26,17 +22,15 @@ const createTable = async () => {
         );
     `;
     try {
-        const client = await pool.connect();      // Pega uma conexão disponível do pool
-        await client.query(createTableQuery);     // Executa o comando de criação da tabela
-        client.release();                         // Devolve a conexão para o pool para que possa ser reutilizada
+        const client = await pool.connect();      
+        await client.query(createTableQuery);    
+        client.release();                        
         console.log("Tabela 'leituras' pronta para uso no PostgreSQL.");
     } catch (err) {
         console.error("Erro ao criar tabela no PostgreSQL:", err);
     }
 };
 
-// Chamamos a função aqui para garantir que a tabela seja verificada/criada assim que a aplicação iniciar.
 createTable();
 
-// Exportamos o 'pool' para que outros arquivos (como o server.js) possam usá-lo para fazer queries no banco.
 module.exports = pool;
