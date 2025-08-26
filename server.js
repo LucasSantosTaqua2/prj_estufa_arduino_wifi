@@ -1,4 +1,4 @@
-// server.js - VERSÃO CORRETA COM SUPORTE A WEBSOCKETS
+// server.js - VERSÃO COM SUPORTE A WEBSOCKETS
 
 const express = require('express');
 const http = require('http');      // Módulo http nativo do Node.js
