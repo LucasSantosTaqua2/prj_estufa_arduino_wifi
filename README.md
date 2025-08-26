@@ -37,34 +37,3 @@ Este projeto consiste em um sistema de monitoramento de estufa em tempo real. Um
 ### Banco de Dados
 
 * **PostgreSQL**
-
-## 🚀 Como Executar o Projeto
-
-### Pré-requisitos
-
-* Node.js e npm instalados.
-* Um servidor PostgreSQL em execução.
-* Um microcontrolador (como ESP8266/ESP32) configurado para enviar requisições POST para o endpoint `/dados-estufa`.
-
-### 1. Configuração do Banco de Dados
-
-1.  Crie um novo banco de dados no PostgreSQL. Por exemplo, `estufa_db`.
-2.  Abra o arquivo `database.js`.
-3.  Altere as credenciais de conexão do `Pool` para corresponder à sua configuração do PostgreSQL, especialmente o campo `password`.
-
-    ```javascript
-    const pool = new Pool({
-        user: 'postgres',
-        host: 'localhost',
-        database: 'estufa_db', // Nome do seu banco de dados
-        password: 'sua_senha_aqui', // <<-- SUBSTITUA PELA SUA SENHA
-        port: 5432,
-    });
-    ```
-
-### 2. Instalação das Dependências
-
-Navegue até a pasta raiz do projeto e execute o seguinte comando para instalar as dependências listadas no `package.json`:
-
-```bash
-npm install
