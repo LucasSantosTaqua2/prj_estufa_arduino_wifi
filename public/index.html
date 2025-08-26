@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Estufa Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="dashboard-header">
+            <h1><i class="fa-solid fa-leaf"></i> Dashboard da Estufa</h1>
+            <p>Monitoramento de dados em tempo real</p>
+        </header>
+
+        <main class="dashboard-main">
+            <section class="card-grid">
+
+                <div class="card card-temp">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-thermometer-half"></i> Temperatura</h2>
+                    </div>
+                    <div class="card-body">
+                        <p><span id="media_temp">--</span><span class="unit">°C</span></p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Min: <b id="min_temp">--</b>°C</span>
+                        <span>Max: <b id="max_temp">--</b>°C</span>
+                    </div>
+                </div>
+
+                <div class="card card-umid">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-tint"></i> Umidade</h2>
+                    </div>
+                    <div class="card-body">
+                        <p><span id="media_umid">--</span><span class="unit">%</span></p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Min: <b id="min_umid">--</b>%</span>
+                        <span>Max: <b id="max_umid">--</b>%</span>
+                    </div>
+                </div>
+
+                <div class="card card-small card-readings">
+                     <div class="card-header">
+                        <h2><i class="fa-solid fa-chart-bar"></i> Leituras</h2>
+                    </div>
+                    <div class="card-body">
+                        <p id="total_leituras">--</p>
+                    </div>
+                </div>
+
+                <div class="card card-small">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-server"></i> Status</h2>
+                    </div>
+                    <div class="card-body">
+                        <p id="status_servidor">Aguardando...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="log-container">
+                <div class="log-header">
+                    <h3><i class="fa-solid fa-clipboard-list"></i> Log de Atividade</h3>
+                </div>
+                <div id="log_box"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="monitor.js"></script>
+</body>
+</html>
